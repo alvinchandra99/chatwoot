@@ -144,7 +144,7 @@ class Whatsapp::IncomingMessageBaseService
     @waChannel = Channel::Whatsapp.find_by(whatsapp_channel_id: @inbox.channel_id) if @inbox.channel_id
     message_type = @waChannel&.phone_number == message[:from] ? :outgoing : :incoming
 
-    Rails.logger.info "[ALVIN DEBUG] Creating message with inbox: #{@inbox.id}, waChannel: #{@waChannel&.id}, message type: #{message_type}"
+    Rails.logger.info "[ALVIN DEBUG] Creating message with inbox: #{@inbox.inspect}, waChannel: #{@waChannel&.inspect}, message type: #{message_type}"
 
     @message = @conversation.messages.build(
       content: message_content(message),
