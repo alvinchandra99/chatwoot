@@ -146,7 +146,7 @@ class Whatsapp::IncomingMessageBaseService
       content: message_content(message),
       account_id: @inbox.account_id,
       inbox_id: @inbox.id,
-      message_type: @waChannel.phone_number == message[:id] ? :outgoing : :incoming,
+      message_type: @waChannel.phone_number == message[:from] ? :outgoing : :incoming,
       sender: @contact,
       source_id: message[:id].to_s,
       in_reply_to_external_id: @in_reply_to_external_id
