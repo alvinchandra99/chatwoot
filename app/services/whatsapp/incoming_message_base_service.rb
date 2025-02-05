@@ -141,11 +141,12 @@ class Whatsapp::IncomingMessageBaseService
   end
 
   def create_message(message)
+    @waChannel = Channel::Whatsapp.find_b(whatsapp_channel_id: @inbox.channel_id) if @inbox.channel_id
     @message = @conversation.messages.build(
       content: message_content(message),
       account_id: @inbox.account_id,
       inbox_id: @inbox.id,
-      message_type: :incoming,
+      message_type: @waChannel.phone_number == message[:id] ? :outgoing : :incoming,
       sender: @contact,
       source_id: message[:id].to_s,
       in_reply_to_external_id: @in_reply_to_external_id
