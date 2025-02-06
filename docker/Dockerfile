@@ -31,10 +31,8 @@ RUN apk update && apk add --no-cache \
   && gem install bundler
 
 
-# Install Node.js and npm
-RUN apt-get update && apt-get install -y curl \
-    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
+# Install Node.js and npm for Alpine Linux
+RUN apk add --no-cache curl nodejs npm
 
 # Install PNPM 9.x explicitly
 RUN npm install -g pnpm@9 \
