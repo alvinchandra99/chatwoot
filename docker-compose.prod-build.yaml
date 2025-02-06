@@ -46,7 +46,7 @@ services:
     env_file:
       - .env
     environment:
-      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_DB=chatwoot
       - POSTGRES_USER=${POSTGRES_USERNAME}
       # Please provide your own password.
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
