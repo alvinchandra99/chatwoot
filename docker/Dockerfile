@@ -30,10 +30,10 @@ RUN apk update && apk add --no-cache \
   && mkdir -p /var/app \
   && gem install bundler
 
-# Install pnpm and configure environment
+
+# Install PNPM 9.x explicitly
 RUN npm install -g pnpm@9 \
     && pnpm --version
-
 
 # Persist the environment variables in Docker
 ENV PNPM_HOME="/root/.local/share/pnpm"
