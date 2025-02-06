@@ -7,6 +7,7 @@ services:
       dockerfile: ./docker/Dockerfile
       args:
         RAILS_ENV: 'production'
+        GIT_SHA: $(git rev-parse HEAD)
     env_file: .env ## Change this file for customized env variables
     volumes:
       - /data/storage:/app/storage

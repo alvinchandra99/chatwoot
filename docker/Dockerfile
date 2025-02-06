@@ -87,6 +87,7 @@ RUN if [ "$RAILS_ENV" = "production" ]; then \
   fi
 
 # Generate .git_sha file with current commit hash
+ARG GIT_SHA
 RUN git rev-parse HEAD > /app/.git_sha
 
 # Remove unnecessary files
